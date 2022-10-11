@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks>net6.0-android;net6.0-ios</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
@@ -12,7 +11,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>MiCetApp</ApplicationTitle>
+		<ApplicationTitle>MiCet App</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.micetapp</ApplicationId>
@@ -23,19 +22,16 @@
 		<ApplicationVersion>1</ApplicationVersion>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
-		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\micet_icon.png" ForegroundFile="Resources\AppIcon\micet_icon.png" Color="#4a6fa4" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Images\micet_splash.png" Color="#4a6fa4" BaseSize="120,80" />
+
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -49,7 +45,44 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\Aureola-Italic.ttf" />
+	  <None Remove="Resources\Fonts\Aureola-Regular.ttf" />
+	  <None Remove="Resources\Images\dapps.svg" />
+	  <None Remove="Resources\Images\dex.svg" />
+	  <None Remove="Resources\Images\eye_disable.svg" />
+	  <None Remove="Resources\Images\eye_enable.svg" />
+	  <None Remove="Resources\Images\micet_icon.png" />
+	  <None Remove="Resources\Images\micet_splash.png" />
+	  <None Remove="Resources\Images\micet_splashsc.png" />
+	  <None Remove="Resources\Images\qrcode.svg" />
+	  <None Remove="Resources\Images\safe_trade.svg" />
+	  <None Remove="Resources\Images\scan.svg" />
+	  <None Remove="Resources\Images\scanner.svg" />
+	  <None Remove="Resources\Images\send.svg" />
+	  <None Remove="Resources\Images\setting.svg" />
+	  <None Remove="Resources\Images\trade.svg" />
+	  <None Remove="Resources\Images\user_satu.jpg" />
+	  <None Remove="Resources\Images\wallet.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Dapper.Contrib" Version="2.0.78" />
 	  <PackageReference Include="Syncfusion.Maui.TabView" Version="20.3.48" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="ViewModel\" />
+	  <Folder Include="View\Template\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="Resources\AppIcon\micet_icon.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="View\StartPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
