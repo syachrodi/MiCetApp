@@ -27,7 +27,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\micet_icon.png" ForegroundFile="Resources\AppIcon\micet_icon.png" Color="#4a6fa4" />
+		<MauiIcon Include="Resources\AppIcon\micet_icon.png" Color="#4a6fa4" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Images\micet_splash.png" Color="#4a6fa4" BaseSize="120,80" />
@@ -51,6 +51,7 @@
 	  <None Remove="Resources\Images\dex.svg" />
 	  <None Remove="Resources\Images\eye_disable.svg" />
 	  <None Remove="Resources\Images\eye_enable.svg" />
+	  <None Remove="Resources\Images\loading_animation.gif" />
 	  <None Remove="Resources\Images\micet_icon.png" />
 	  <None Remove="Resources\Images\micet_splash.png" />
 	  <None Remove="Resources\Images\micet_splashsc.png" />
